@@ -1,10 +1,20 @@
-import { useState } from "react"
+import { useState , useEffect } from "react"
 
 import { useNavigate } from "react-router-dom";
 
 
 const Home = () => {
     const navigate = useNavigate();
+
+//       useEffect(() => {
+//     fetch("http://localhost:3000/session", {
+//       method: "GET",
+//       credentials: "include",
+//     })
+//       .then(res => res.json())
+//       .then(data => console.log(data))
+//       .catch(err => console.error(err))
+//   }, []);
 
     const [page, setpage] = useState(
         {
@@ -70,8 +80,8 @@ const Home = () => {
 
 
         </div>
-
     )
+
 }
 
 export default Home
