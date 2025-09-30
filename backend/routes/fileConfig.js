@@ -25,7 +25,7 @@ router.post("/upload", upload.single("file"), async (req, res) => {
 
   let ext = mimeToExt[req.file.mimetype];
   if (!ext) {
-    const originalExt = path.extname(req.file.originalname).slice(1); // remove "."
+    let originalExt = path.extname(req.file.originalname).slice(1); // remove "."
     if (originalExt) {
       ext = originalExt;
     }
@@ -35,7 +35,7 @@ router.post("/upload", upload.single("file"), async (req, res) => {
   }
 
 
-  const resourceType = "raw";
+  let resourceType = "raw";
   if (req.file.mimetype.startsWith("image/")) resourceType = "image";
   else if (req.file.mimetype.startsWith("video/")) resourceType = "video";
 
@@ -47,7 +47,7 @@ router.post("/upload", upload.single("file"), async (req, res) => {
     return res.status(400).json({ error: "Please provide branch, semester no. and subject  in the request body" });
   }
   try {
-    const result = await cloudinary.uploader.upload(req.file.path, {
+    let result = await cloudinary.uploader.upload(req.file.path, {
       folder: folderName,
       resource_type: resourceType,
       format: ext,
