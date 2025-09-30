@@ -1,6 +1,9 @@
 import { useUser } from "@clerk/clerk-react";
 import { useEffect } from "react";
 
+
+const apiUrl = import.meta.env.VITE_API_URL;
+
 function Userinfo() {
   const { user } = useUser();
 
@@ -10,7 +13,7 @@ function Userinfo() {
       const primaryEmail = user.primaryEmailAddress?.emailAddress;
 
       // Send to backend
-      fetch("http://localhost:3000/save-user", {
+      fetch(`${apiUrl}/save-user`, {
         method: "POST",
         headers: {
           "Content-Type": "application/json"

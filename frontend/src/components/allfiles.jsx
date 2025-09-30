@@ -1,6 +1,9 @@
 import React, { useEffect, useState } from "react";
 import { useSearchParams } from "react-router-dom";
 
+const apiUrl = import.meta.env.VITE_API_URL;
+
+
 
 
 console.log("Files component loaded");
@@ -19,7 +22,7 @@ const AllFiles = () => {
   const fetchFiles = async () => {
     if (!folder) return;
     try {
-      const response = await fetch(`http://localhost:3000/file/getallfiles/${folder}`);
+      const response = await fetch(`${apiUrl}/file/getallfiles/${folder}`);
       const data = await response.json();
       setFiles(data);
     } catch (err) {
