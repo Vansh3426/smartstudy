@@ -15,8 +15,23 @@ app.use(express.json());
 // const notes = require('./routes/notes')
 const fileConfig = require('./routes/fileConfig')
 
+const vercelUrl = process.env.vite_frontend_url
+
+const allowedOrigins = [
+  'http://localhost:5173',
+  `${vercelUrl}`,
+];
+
 app.use(cors({
-  origin: "http://localhost:5173",
+  origin: function(origin, callback) {
+    // allow requests with no origin (like mobile apps or curl)
+    if (!origin) return callback(null, true);
+    if (allowedOrigins.includes(origin)) {
+      callback(null, true);
+    } else {
+      callback(new Error("Not allowed by CORS"));
+    }
+  },
   credentials: true
 }));
 
