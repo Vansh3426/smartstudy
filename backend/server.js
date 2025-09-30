@@ -15,7 +15,7 @@ app.use(express.json());
 // const notes = require('./routes/notes')
 const fileConfig = require('./routes/fileConfig')
 
-const vercelUrl = process.env.vite_frontend_url
+const vercelUrl = process.env.VITE_FRONTEND_URL
 
 const allowedOrigins = [
   'http://localhost:5173',
