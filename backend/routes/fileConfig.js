@@ -15,7 +15,7 @@ const upload = multer({ dest: "uploads/" });
 
 router.post("/upload", upload.single("file"), async (req, res) => {
 
-  const mimeToExt = {
+  let mimeToExt = {
     "application/pdf": "pdf",
     "application/vnd.openxmlformats-officedocument.wordprocessingml.document": "docx",
     "application/msword": "doc",
@@ -62,7 +62,7 @@ router.post("/upload", upload.single("file"), async (req, res) => {
     });
 
     // Save details in MongoDB
-    const newFile = new FileModel({
+    let newFile = new FileModel({
       url: result.secure_url,      // Cloudinary secure URL
       public_id: result.public_id, // Cloudinary file ID
       mimetype: req.file.mimetype,
