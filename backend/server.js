@@ -10,10 +10,10 @@ const cors = require('cors');
 const app = express()
 
 app.use(express.json());
-const books = require('./routes/books')
-const pdf = require('./routes/pdf')
-const notes = require('./routes/notes')
-
+// const books = require('./routes/books')
+// const pdf = require('./routes/pdf')
+// const notes = require('./routes/notes')
+const fileConfig = require('./routes/fileConfig')
 
 app.use(cors({
   origin: "http://localhost:5173",
@@ -52,6 +52,8 @@ app.use(express.static("public"));
 app.post("/save-user", saveUser, (req, res) => {
  
 })
+
+app.use("/file", fileConfig);
 
 app.listen(3000, () => {
   console.log(`Example app listening on port ${3000}`)

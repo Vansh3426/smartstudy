@@ -3,7 +3,7 @@ import { useState } from "react";
  import { VscAccount } from "react-icons/vsc";
 import Adminpanel from "./adminpanel";
 import { FaHouse } from "react-icons/fa6";
-import { SignedIn, UserButton } from "@clerk/clerk-react";
+import { SignedIn, SignedOut, UserButton } from "@clerk/clerk-react";
 import { AiOutlineInfoCircle } from "react-icons/ai";
 import { FiAlignJustify } from "react-icons/fi";
 
@@ -38,11 +38,14 @@ const Navbar = () => {
 
           <ul className='flex justify-end gap-1.5 sm:gap-2 md:gap-4 lg:gap-6 px-2 sm:px-5  text-white'>
             <li className="transition-all duration-300  hover:scale-110 hover:drop-shadow-[0_0_10px_gold]  text-sm sm:text-base "><NavLink to="/" className="flex items-center gap-x-1 sm:gap-1.5 md:gap-3"> HOME <FaHouse /> </NavLink></li>
-
+             
             <li className="transition-all duration-300  hover:scale-110 hover:drop-shadow-[0_0_10px_gold]  text-sm sm:text-base "><NavLink to="/about" className="flex items-center gap-x-1 sm:gap-1.5 md:gap-3">ABOUT <AiOutlineInfoCircle /> </NavLink></li>
-
+            <SignedOut>
+               <li className="transition-all duration-300  hover:scale-110 hover:drop-shadow-[0_0_10px_gold]  text-sm sm:text-base "><NavLink to="/login" className="flex items-center gap-x-1 sm:gap-1.5 md:gap-3">LOGIN<VscAccount /> </NavLink></li>
+              </SignedOut>
+              
               <li>  <SignedIn>
-          <UserButton afterSignOutUrl="/" />
+          <UserButton />
         </SignedIn></li>
           </ul>
 

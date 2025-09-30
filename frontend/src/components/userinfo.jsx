@@ -22,7 +22,7 @@ function Userinfo() {
     }
   }, [user]);
 
-  return <h1>Welcome {user?.fullName}</h1>
+  return null;
 }
 
 export default Userinfo;
