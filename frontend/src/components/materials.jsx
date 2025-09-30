@@ -52,10 +52,10 @@ return(
      items-center font-bold text-5xl font-sans"><NavLink to={`/getnotes${handlepdf()}`}>   PDF         </NavLink> </div>
      <div className="border 2px solid black transition-all duration-300  hover:scale-105 hover:drop-shadow-[-10px_10px_20px_black] 
      bg-gradient-to-bl from-gray-500 to-gray-200  text-white flex justify-center 
-     items-center font-bold text-5xl font-sans"><NavLink to={`/getnotes${handlejpg()}`}>   PDF         </NavLink> </div>
+     items-center font-bold text-5xl font-sans"><NavLink to={`/getnotes${handlejpg()}`}>   JPG        </NavLink> </div>
      <div className="border 2px solid black transition-all duration-300  hover:scale-105 hover:drop-shadow-[-10px_10px_20px_black] 
      bg-gradient-to-bl from-gray-500 to-gray-200  text-white flex justify-center 
-     items-center font-bold text-5xl font-sans"><NavLink to={`/getnotes${handlepng()}`}>   PDF         </NavLink> </div>
+     items-center font-bold text-5xl font-sans"><NavLink to={`/getnotes${handlepng()}`}>   PNG       </NavLink> </div>
 
      </>
 )
